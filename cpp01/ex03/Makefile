@@ -1,0 +1,21 @@
+SRCS_F =		main.cpp\
+				HumanA.cpp\
+				HumanB.cpp\
+				Weapon.cpp
+OBJS_F =		$(SRCS_F:.cpp=.o)
+CXXFLAGS =		-Wall -Werror -Wextra -std=c++98 -g3
+CXX =			c++
+NAME =			Human
+
+all:			$(NAME)
+
+$(NAME):		$(OBJS_F)
+				$(CXX) $(CFLAGS) -o $(NAME) $(OBJS_F)
+
+clean:
+				rm -f *.o
+
+fclean:			clean
+				rm -f $(NAME)
+
+re:				clean all
