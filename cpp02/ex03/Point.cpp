@@ -6,13 +6,13 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:45:20 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/06 15:49:24 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:23:55 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point()
+Point::Point(): _x(Fixed(0)), _y(Fixed(0))
 {
 }
 
