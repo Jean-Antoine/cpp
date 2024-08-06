@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 14:20:44 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/06 11:03:25 by jeada-si         ###   ########.fr       */
+/*   Created: 2024/08/06 15:45:09 by jeada-si          #+#    #+#             */
+/*   Updated: 2024/08/06 15:57:28 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FIXED_H__
-# define __FIXED_H__
-# include <iostream>
+#include "Point.hpp"
 
-class Fixed
+bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	private:
-		int					_rawBits;
-		static const int	_fracBits = 8;
-	public:
-		Fixed();
-		Fixed(const Fixed &src);
-		Fixed& operator=(const Fixed &src);
-		~Fixed();
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-};
+	bool	sign;
 
-#endif
+	sign = point.sign(a, b);
+	if (sign != point.sign(b,c))
+		return (0);
+	if (sign != point.sign(c, a))
+		return (0);
+	return (1);
+};

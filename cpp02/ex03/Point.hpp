@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 14:20:44 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/06 11:03:25 by jeada-si         ###   ########.fr       */
+/*   Created: 2024/08/06 13:45:43 by jeada-si          #+#    #+#             */
+/*   Updated: 2024/08/06 15:51:37 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FIXED_H__
-# define __FIXED_H__
-# include <iostream>
+#ifndef __POINT_H__
+# define __POINT_H__
+# include "Fixed.hpp"
 
-class Fixed
+class Point
 {
 	private:
-		int					_rawBits;
-		static const int	_fracBits = 8;
+		Fixed const	_x;
+		Fixed const	_y;
 	public:
-		Fixed();
-		Fixed(const Fixed &src);
-		Fixed& operator=(const Fixed &src);
-		~Fixed();
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		Point();
+		Point(float const x, float const y);
+		Point(const Point &src);
+		Point& operator=(const Point &src);
+		~Point();
+		Fixed const&	getX(void) const;
+		Fixed const&	getY(void) const;
+		bool			sign(Point const &A, Point const &B) const;
 };
 
 #endif
