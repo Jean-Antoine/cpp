@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 15:45:42 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/20 15:00:28 by jeada-si         ###   ########.fr       */
+/*   Created: 2024/08/20 13:37:53 by jeada-si          #+#    #+#             */
+/*   Updated: 2024/08/20 14:59:25 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICHARACTER_HPP__
-# define __ICHARACTER_HPP__
+#ifndef __IMATERIASOURCE_HPP__
+# define __IMATERIASOURCE_HPP__
 # include <string>
 # include <iostream>
 # include <iomanip>
@@ -20,22 +20,18 @@
 # define RED    "\e[1;31m"
 # define BLUE   "\e[1;34m"
 # define PINK   "\e[1;35m"
-# define RESET  "\e[0m"
+# define RESET  "\e[0m"	
 # include "AMateria.hpp"
 
-class AMateria;
-
-class ICharacter
+class IMateriaSource
 {
 	public:
-									ICharacter();
-									ICharacter(const ICharacter &src);
-		ICharacter&					operator=(const ICharacter &src);
-		virtual						~ICharacter();
-		virtual std::string const&	getName() const = 0;
-		virtual void				equip(AMateria* m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter& target) = 0;
+							IMateriaSource();
+							IMateriaSource(const IMateriaSource &src);
+		IMateriaSource&		operator=(const IMateriaSource &src);
+		virtual				~IMateriaSource();
+		virtual void		learnMateria(AMateria*) = 0;
+		virtual AMateria*	createMateria(std::string const & type) = 0;
 };
 
 #endif

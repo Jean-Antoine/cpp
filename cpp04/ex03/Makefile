@@ -2,8 +2,10 @@ SRCS =		AMateria.cpp\
 			main.cpp\
 			Cure.cpp\
 			Ice.cpp\
+			ICharacter.cpp\
 			Character.cpp\
-			ICharacter.cpp
+			IMateriaSource.cpp\
+			MateriaSource.cpp
 OBJS =		$(SRCS:.cpp=.o)
 CXX =		c++
 CXXFLAGS =	-Wall -Werror -Wextra -std=c++98 -g3

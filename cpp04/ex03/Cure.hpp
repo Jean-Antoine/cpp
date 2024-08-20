@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:41:04 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/09 15:44:04 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/20 12:20:16 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Cure: public AMateria
 							Cure(const Cure &src);
 		Cure&				operator=(const Cure &src);
 							~Cure();
-		void				use(Character& target);
+		void				use(ICharacter& target);
 		AMateria*			clone() const;
 };
 

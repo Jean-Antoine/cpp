@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:56:31 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/09 15:44:04 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:39:52 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ AMateria::~AMateria()
 	std::cout << BLUE "[AMateria] Destructor called" RESET << std::endl;
 }
 
-void		AMateria::use(Character& target)
+void		AMateria::use(ICharacter& target)
 {
 	(void) target;
 }

@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:38:35 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/09 15:44:04 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/20 12:20:22 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Ice: public AMateria
 							Ice(const Ice &src);
 		Ice&				operator=(const Ice &src);
 							~Ice();
-		void				use(Character& target);
+		void				use(ICharacter& target);
 		AMateria*			clone() const;
 };
 
