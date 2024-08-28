@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:20:46 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/06 10:38:49 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/22 12:43:48 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int	main(void) {
 	Fixed	a;
-	Fixed	b( a );
+	Fixed	b(a);
 	Fixed	c;
 	
-	c = b;
-	
+	b.setRawBits(59);
+	c = b;	
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;

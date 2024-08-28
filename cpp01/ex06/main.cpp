@@ -6,16 +6,17 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 11:29:36 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/02 12:01:19 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:36:47 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main(void)
+int	main(int ac, char** av)
 {
-	Harl H;
+	if (ac != 2)
+		std::cout << "Wrong argument(s)." << std::endl;
 
-	H.complain("DEBUG");
-	// H.complain("RANDOM");
+	Harl H;
+	H.complain(av[1]);
 }

@@ -16,13 +16,11 @@
 
 class Cat: public Animal
 {
-	private:
-		
 	public:
-		Cat();
-		Cat(const Cat &src);
-		Cat& operator=(const Cat &src);
-		~Cat();
+						Cat();
+						Cat(const Cat &src);
+						~Cat();
+		Cat&			operator=(const Cat &src);
 		virtual void	makeSound(void) const;
 };
 

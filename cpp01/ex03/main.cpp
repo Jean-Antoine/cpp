@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:36:51 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/07/31 16:37:34 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/21 10:42:02 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
-return 0;
+
+	return 0;
 }

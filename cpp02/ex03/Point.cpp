@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:45:20 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/06 16:23:55 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:08:56 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ Fixed const&	Point::getY(void) const
 }
 
 bool	Point::sign(Point const &A, Point const &B) const
-{	
+{
 	return ((this->getX() - B.getX()) * (A.getY() - B.getY())
-		- (A.getX() - B.getX()) * (this->getY() - B.getY()) > 0);
+		- (A.getX() - B.getX()) * (this->getY() - B.getY()) >= 0);
+}
+
+std::ostream&	operator<<(std::ostream& out, Point& point)
+{
+	out << "(" << point.getX() << ", " << point.getY() << ")";
+	return out;
 }

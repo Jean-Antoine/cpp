@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:57:53 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/01 17:23:20 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/21 10:50:58 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,17 @@ Sed::Sed(std::string filename, std::string s1, std::string s2): _s1(s1), _s2(s2)
 	
 	_in.open(filename.data());
 	if (!_in)
+	{
 		std::cout << "Input file opening failed." << std::endl;
+		return ;
+	}		
 	outfile.append(filename).append(".replace");
 	_out.open(outfile.data());
 	if (!_out)
+	{
 		std::cout << "Output file opening failed." << std::endl;
+		return ;
+	}		
 	if (!_s1.size())
 		std::cout << "s1 cannot be empty." << std::endl;
 }
@@ -48,7 +54,7 @@ int	Sed::replace()
 			_out << _s2;
 		else
 		{
-			inBuffer->pubseekoff(-size, std::ios_base::cur);		
+			inBuffer->pubseekoff(-size, std::ios_base::cur);
 			_out << (char) inBuffer->sbumpc();
 		}
 	}

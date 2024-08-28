@@ -6,14 +6,15 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:20:46 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/06 11:57:20 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:37:24 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-int main( void ) {
+int main(void)
+{
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );

@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:16:23 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/07/31 15:03:57 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/21 10:06:49 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int	main(void)
 {
-	Zombie	*horde;
-	int		N;
+	int		N = 10;
+	Zombie	*horde = zombieHorde(N, "zomby");
 
-	N = 10;
-	horde = zombieHorde(N, "zomby");
 	for (int i = 0; i < N; i++)
-		(horde + i)->announce();
+		horde[i].announce();
 	delete [] horde;
 }

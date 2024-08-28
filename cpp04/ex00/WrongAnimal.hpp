@@ -23,12 +23,12 @@
 class WrongAnimal
 {
 	protected:
-		std::string	_type;
+		std::string		_type;
 	public:
-		WrongAnimal();
-		WrongAnimal(const WrongAnimal &src);
-		WrongAnimal& operator=(const WrongAnimal &src);
-		virtual	~WrongAnimal();
+						WrongAnimal();
+						WrongAnimal(const WrongAnimal &src);
+		virtual			~WrongAnimal();
+		WrongAnimal&	operator=(const WrongAnimal &src);
 		std::string		getType(void) const;
 		void			makeSound(void) const;
 };

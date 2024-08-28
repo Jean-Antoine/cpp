@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 11:02:35 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/02 12:05:51 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/21 10:56:13 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Harl
 		void		error(void);
 		std::string	complaintsLevels[4];
 	public:
-		Harl();
-		~Harl();
+				Harl();
+				~Harl();
 		void	complain(std::string level);
 };
 
