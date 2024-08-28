@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:47:52 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 14:52:49 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:14:46 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &src)
 
 DiamondTrap::~DiamondTrap()
 {
+	constructorLog("Destuctor called:");
 }
 
 void	DiamondTrap::displayStats()
@@ -63,4 +64,11 @@ void	DiamondTrap::displayStats()
 	std::cout << RESET "Name: " << BLUE << this->_name;
 	std::cout << RESET "|ClapTrap ";
 	ClapTrap::displayStats();
+}
+
+void	DiamondTrap::whoAmI(void)
+{
+	std::cout << RESET "Clap name: " << BLUE << ClapTrap::_name;
+	std::cout << RESET "| Name: " << BLUE << this->_name;
+	std::cout << RESET << std::cout;
 }

@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:42:55 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 14:23:48 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:07:57 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class ClapTrap
 	private:
 		void				constructorLog(std::string log);
 	public:
-		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap &src);
-		ClapTrap& operator=(const ClapTrap &src);
-		~ClapTrap();
+							ClapTrap();
+							ClapTrap(std::string name);
+							ClapTrap(const ClapTrap &src);
+							~ClapTrap();
+		ClapTrap&			operator=(const ClapTrap &src);
 		void				displayStats(void);
 		void				attack(const std::string& target);
 		void				takeDamage(unsigned int amount);

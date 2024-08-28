@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 17:32:57 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 14:55:54 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:13:03 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(void)
 		FragTrap	michel("Michel");
 		FragTrap	jeannot;
 
+		michel.attack("Whoever");
+		michel.takeDamage(50);
 		jeannot.displayStats();
 		michel.displayStats();
 		jeannot = michel;

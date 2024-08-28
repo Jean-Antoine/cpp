@@ -65,4 +65,10 @@ int	main(void)
 		}
 		michel.highFiveGuys();
 	}
+	nextScope("WHOAMI");
+	{
+		DiamondTrap	michel("Michel");
+
+		michel.whoAmI();
+	}
 }

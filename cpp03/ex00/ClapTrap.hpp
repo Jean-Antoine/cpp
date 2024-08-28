@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:42:55 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 11:07:34 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 11:57:33 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ class ClapTrap
 		bool				isDead(void);
 		bool				isUnable(void);
 	public:
-		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap &src);
-		ClapTrap& operator=(const ClapTrap &src);
-		~ClapTrap();
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+							ClapTrap();
+							ClapTrap(std::string name);
+							ClapTrap(const ClapTrap &src);
+							~ClapTrap();
+		ClapTrap&			operator=(const ClapTrap &src);
+		void				attack(const std::string& target);
+		void				takeDamage(unsigned int amount);
+		void				beRepaired(unsigned int amount);
 };
 
 #endif

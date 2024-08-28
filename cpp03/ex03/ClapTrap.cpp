@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:43:40 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 14:24:12 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 11:58:32 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	std::cout << GREEN "ClapTrap " << _name << " got repaired,";
 	std::cout << " gaining " << amount << " hit points !" << std::endl;
+	_hitPts += amount;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

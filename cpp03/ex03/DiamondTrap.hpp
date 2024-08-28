@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 11:47:50 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 14:53:04 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:15:23 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
-		std::string	_name;
-		void		constructorLog(std::string log);
+		std::string		_name;
+		void			constructorLog(std::string log);
 	public:
-		DiamondTrap();
-		DiamondTrap(std::string name);
-		DiamondTrap(const DiamondTrap &src);
-		DiamondTrap& operator=(const DiamondTrap &src);
-		~DiamondTrap();
-		void	displayStats(void);
+						DiamondTrap();
+						DiamondTrap(std::string name);
+						DiamondTrap(const DiamondTrap &src);
+						~DiamondTrap();
+		DiamondTrap&	operator=(const DiamondTrap &src);
+		void			whoAmI(void);
+		void			displayStats(void);
 };
 
 #endif

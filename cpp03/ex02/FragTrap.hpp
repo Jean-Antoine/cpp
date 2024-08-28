@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:02:51 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/08 14:55:15 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/28 12:08:12 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 class FragTrap: public ClapTrap
 {
 	private:
-		void	constructorLog(std::string log);
+		void		constructorLog(std::string log);
 	public:
-		FragTrap(void);
-		FragTrap(std::string name);
-		FragTrap(const FragTrap &src);
-		FragTrap& operator=(const FragTrap &src);
-		~FragTrap(void);
+					FragTrap(void);
+					FragTrap(std::string name);
+					FragTrap(const FragTrap &src);
+					~FragTrap(void);
+		FragTrap&	operator=(const FragTrap &src);
 		void		highFiveGuys(void);
 };
 
