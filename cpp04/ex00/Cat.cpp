@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 16:20:16 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/03 14:12:16 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:08:57 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Cat::Cat()
 	if (VERBOSE)
 		std::cout << BLUE "[Cat] Default constructor called" RESET << std::endl;
 }
-
 
 Cat::Cat(const Cat &src)
 {

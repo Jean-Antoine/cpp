@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 17:19:49 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/29 12:23:06 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:56:06 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 Brain::Brain()
 {
+// 	for (int i = 0; i < 100; i++)
+// 		_idea[i] = "";
 	if(VERBOSE)
 		std::cout << BLUE "[Brain ] Default constructor called" RESET << std::endl;
 }
@@ -28,7 +30,6 @@ Brain::Brain(const Brain &src)
 		std::cout << BLUE "[Brain ] Copy constructor called" RESET << std::endl;
 }
 
-
 Brain& Brain::operator=(const Brain &src)
 {
 	for (int i = 0; i < 100; i++)
@@ -38,7 +39,6 @@ Brain& Brain::operator=(const Brain &src)
 	return *this;
 }
 
-
 Brain::~Brain()
 {
 	if(VERBOSE)
@@ -47,16 +47,19 @@ Brain::~Brain()
 
 void	Brain::setIdea(unsigned int i, std::string idea)
 {
-	if (i > 100)
-		return;
+	if (i > 99)
+	{
+		std::cout << "A brain can t hold that many ideas.\n";
+		return ;
+	}
 	this->_idea[i] = idea;
 }
 
 void	Brain::getIdea(unsigned int i) const
 {
-	if (i > 100)
+	if (i > 99)
 	{
-		std::cout << "A brain can t hold that many ideas\n.";
+		std::cout << "A brain can t hold that many ideas.\n";
 		return ;
 	}
 	std::cout << "Idea no." << i << ": " << this->_idea[i] << std::endl;

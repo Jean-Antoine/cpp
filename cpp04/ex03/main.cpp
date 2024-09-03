@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 13:56:04 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/29 13:36:07 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:19:13 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main()
 		AMateria*	c = new	Cure();
 		AMateria*	clone = c->clone();
 		Character	unknown;
-
+		
 		i->use(unknown);
 		c->use(unknown);
 		clone->use(unknown);
