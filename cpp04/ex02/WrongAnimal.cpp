@@ -16,24 +16,28 @@
 WrongAnimal::WrongAnimal()
 {
 	_type = "WrongAnimal";
-	std::cout << BLUE "[WrongAnimal] Default constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongAnimal] Default constructor called" RESET << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
 	_type = src._type;
-	std::cout << BLUE "[WrongAnimal] Copy constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongAnimal] Copy constructor called" RESET << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &src)
 {
 	_type = src._type;
-	std::cout << BLUE "[WrongAnimal] Assignment operator called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongAnimal] Assignment operator called" RESET << std::endl;
 	return *this;
 }
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << BLUE "[WrongAnimal] Destructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongAnimal] Destructor called" RESET << std::endl;
 }
 
 std::string	WrongAnimal::getType(void) const

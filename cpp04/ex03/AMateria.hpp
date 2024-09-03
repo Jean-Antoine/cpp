@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 12:48:11 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/20 12:20:47 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:27:56 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
+# define VERBOSE	0
 # define GREEN  "\e[1;32m"
 # define YELLOW "\e[1;33m"
 # define RED    "\e[1;31m"

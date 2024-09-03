@@ -24,7 +24,8 @@ Character::Character()
 	this->_name = "unknown";
 	this->setInventoryNull();
 	this->_trash_idx = 0;
-	std::cout << BLUE "[Character] Default constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Character] Default constructor called" RESET << std::endl;
 }
 
 Character::Character(std::string name)
@@ -32,7 +33,8 @@ Character::Character(std::string name)
 	this->_name = name;
 	this->_trash_idx = 0;
 	this->setInventoryNull();
-	std::cout << BLUE "[Character] Name constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Character] Name constructor called" RESET << std::endl;
 }
 
 void	Character::purgeInventory(void)
@@ -45,7 +47,7 @@ void	Character::purgeInventory(void)
 
 void	Character::copyInventory(const Character &src)
 {
-	this->purgeInventory();
+	setInventoryNull();
 	for (int i = 0; i < 4; i++)
 	{
 		if (src._inventory[i])
@@ -58,20 +60,24 @@ Character::Character(const Character &src)
 	this->copyInventory(src);
 	_name = src._name;
 	_trash_idx = 0;
-	std::cout << BLUE "[Character] Copy constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Character] Copy constructor called" RESET << std::endl;
 }
 
 Character& Character::operator=(const Character &src)
 {
+	this->purgeInventory();
 	this->copyInventory(src);
 	_name = src._name;
-	std::cout << BLUE "[Character] Assignment operator called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Character] Assignment operator called" RESET << std::endl;
 	return *this;
 }
 
 Character::~Character()
 {
-	std::cout << BLUE "[Character] Destructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Character] Destructor called" RESET << std::endl;
 	this->purgeInventory();
 	if (!_trash_idx)
 		return ;
@@ -119,7 +125,11 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter& target)
 {
 	if (!_inventory[idx])
+	{
+		std::cout << YELLOW "/!\\ Slot " << idx << " is empty";
+		std::cout << RESET << std::endl;
 		return ;
+	}
 	_inventory[idx]->use(target);
 	delete _inventory[idx];
 	_inventory[idx] = NULL;

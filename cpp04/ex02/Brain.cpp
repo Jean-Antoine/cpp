@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 17:19:49 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/09 11:25:13 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/29 12:23:06 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 
 Brain::Brain()
 {
-	std::cout << BLUE "[Brain ] Default constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Brain ] Default constructor called" RESET << std::endl;
 }
 
 Brain::Brain(const Brain &src)
 {
 	for (int i = 0; i < 100; i++)
 		this->_idea[i] = src._idea[0];
-	std::cout << BLUE "[Brain ] Copy constructor called" RESET << std::endl;	
+	if(VERBOSE)
+		std::cout << BLUE "[Brain ] Copy constructor called" RESET << std::endl;	
 }
 
 
@@ -31,14 +33,16 @@ Brain& Brain::operator=(const Brain &src)
 {
 	for (int i = 0; i < 100; i++)
 		this->_idea[i] = src._idea[0];
-	std::cout << BLUE "[Brain ] Assignment operator called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Brain ] Assignment operator called" RESET << std::endl;
 	return *this;
 }
 
 
 Brain::~Brain()
 {
-	std::cout << BLUE "[Brain ] Destructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Brain ] Destructor called" RESET << std::endl;
 }
 
 void	Brain::setIdea(unsigned int i, std::string idea)

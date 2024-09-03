@@ -16,27 +16,31 @@
 WrongCat::WrongCat()
 {
 	_type = "WrongCat";
-	std::cout << BLUE "[WrongCat] Default constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongCat] Default constructor called" RESET << std::endl;
 }
 
 
 WrongCat::WrongCat(const WrongCat &src)
 {
 	_type = src._type;
-	std::cout << BLUE "[WrongCat] Copy constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongCat] Copy constructor called" RESET << std::endl;
 }
 
 
 WrongCat& WrongCat::operator=(const WrongCat &src)
 {
 	_type = src._type;
-	std::cout << BLUE "[WrongCat] Assignment operator called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongCat] Assignment operator called" RESET << std::endl;
 	return *this;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << BLUE "[WrongCat] Destructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[WrongCat] Destructor called" RESET << std::endl;
 }
 
 void		WrongCat::makeSound(void) const

@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:39:18 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/20 16:20:50 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/08/29 12:23:06 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,30 @@
 Ice::Ice()
 {
 	_type = "ice";
-	std::cout << BLUE "[Ice] Default constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Ice] Default constructor called" RESET << std::endl;
 }
 
 Ice::Ice(const Ice &src)
 {
 	_type = "ice";
 	(void) &src;
-	std::cout << BLUE "[Ice] Copy constructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Ice] Copy constructor called" RESET << std::endl;
 }
 
 Ice& Ice::operator=(const Ice &src)
 {
 	(void) &src;
-	std::cout << BLUE "[Ice] Assignment operator called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Ice] Assignment operator called" RESET << std::endl;
 	return *this;
 }
 
 Ice::~Ice()
 {
-	std::cout << BLUE "[Ice] Destructor called" RESET << std::endl;
+	if(VERBOSE)
+		std::cout << BLUE "[Ice] Destructor called" RESET << std::endl;
 }
 
 void	Ice::use(ICharacter& target)

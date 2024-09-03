@@ -19,6 +19,9 @@
 # define BLUE   "\e[1;34m"
 # define PINK   "\e[1;35m"
 # define RESET  "\e[0m"
+# ifndef __ANINAL_H__
+	# define VERBOSE 1
+# endif
 
 class WrongAnimal
 {
