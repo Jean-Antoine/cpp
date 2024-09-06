@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 16:23:03 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/03 14:43:07 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:41:21 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,28 @@ Dog::Dog()
 {
 	_type = "Dog";
 	if(VERBOSE)
-		std::cout << BLUE "[Dog] Default constructor called" RESET << std::endl;
+		std::cout << BLUE "[Dog   ] Default constructor called" RESET << std::endl;
 }
 
 Dog::Dog(const Dog &src)
 {
 	_type = src._type;
 	if(VERBOSE)
-		std::cout << BLUE "[Dog] Copy constructor called" RESET << std::endl;
+		std::cout << BLUE "[Dog   ] Copy constructor called" RESET << std::endl;
 }
 
 Dog& Dog::operator=(const Dog &src)
 {
 	_type = src._type;
 	if(VERBOSE)
-		std::cout << BLUE "[Dog] Assignment operator called" RESET << std::endl;
+		std::cout << BLUE "[Dog   ] Assignment operator called" RESET << std::endl;
 	return *this;
 }
 
 Dog::~Dog()
 {
 	if(VERBOSE)
-		std::cout << BLUE "[Dog] Destructor called" RESET << std::endl;
+		std::cout << BLUE "[Dog   ] Destructor called" RESET << std::endl;
 }
 
 void		Dog::makeSound(void) const

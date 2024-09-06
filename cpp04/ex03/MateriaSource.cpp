@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:49:04 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/29 12:37:03 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:31:49 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ MateriaSource::MateriaSource(const MateriaSource &src)
 	this->copy(src._idx, src._source);
 	if(VERBOSE)
 		std::cout << BLUE "[MateriaSource] Copy constructor called" RESET << std::endl;
-}
+} 
 
 MateriaSource& MateriaSource::operator=(const MateriaSource &src)
 {

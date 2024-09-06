@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 15:16:32 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/08/29 12:23:06 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:35:51 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ Animal& Animal::operator=(const Animal &src)
 Animal::~Animal()
 {
 	if(VERBOSE)
+	{
 		std::cout << BLUE "[Animal] Destructor called" RESET << std::endl;
-	std::cout << BLUE << std::setfill('-') << std::setw(40) << "";
-	std::cout << RESET << std::endl;
+		std::cout << BLUE << std::setfill('-') << std::setw(40) << "";
+		std::cout << RESET << std::endl;
+	}		
 }
 
 std::string	Animal::getType(void) const
