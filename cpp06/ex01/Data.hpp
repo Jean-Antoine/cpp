@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 15:26:17 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/06 10:52:01 by jeada-si         ###   ########.fr       */
+/*   Created: 2024/09/17 14:20:53 by jeada-si          #+#    #+#             */
+/*   Updated: 2024/09/17 14:29:03 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SCALARCONVERTER_HPP__
-# define __SCALARCONVERTER_HPP__
+#ifndef __DATA_HPP__
+# define __DATA_HPP__
 # include <string>
 # include <iostream>
 # include <iomanip>
@@ -22,16 +22,23 @@
 # define PINK   "\e[1;35m"
 # define RESET  "\e[0m"
 
-class ScalarConverter
+class Data
 {
 	private:
-		bool				isCharacter(std::string s);
-							ScalarConverter();
-							ScalarConverter(const ScalarConverter &src);
-							~ScalarConverter();
-		ScalarConverter&	operator=(const ScalarConverter &src);
+		std::string		_name;
+		unsigned int	_age;
+		float			_height;
 	public:
-		static void			convert(std::string s);
+						Data();
+						Data(std::string name, unsigned int age, float height);
+						Data(const Data &src);
+						~Data();
+		Data&			operator=(const Data &src);
+		std::string		getName() const;
+		unsigned int	getAge() const;
+		float			getHeight() const;
 };
+
+std::ostream&	operator<<(std::ostream& os, Data& data);
 
 #endif
