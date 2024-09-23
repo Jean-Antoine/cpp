@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:10:04 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/20 13:39:56 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/23 08:50:40 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	swap(T& a, T& b)
 }
 
 template<typename T>
-T	min(T a, T b)
+T	min(T &a, T &b)
 {
 	if (a >= b)
 		return b;
@@ -32,7 +32,7 @@ T	min(T a, T b)
 }
 
 template<typename T>
-T	max(T a, T b)
+T	max(T &a, T &b)
 {
 	if (a <= b)
 		return b;

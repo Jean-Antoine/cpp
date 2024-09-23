@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:22:17 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/20 13:43:58 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/23 09:55:11 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main() {
   int tab[] = { 0, 1, 2, 3, 4 };
   Awesome tab2[5];
 
-  iter( tab, 5, print<int> );
+  iter( tab, 5, print<const int> );
   iter( tab2, 5, print<Awesome> );
 
   return 0;
