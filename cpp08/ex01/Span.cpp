@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:31:36 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/20 09:52:29 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/26 14:32:23 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Span::Span(unsigned long n): _n(n)
 Span::Span(const Span &src)
 {
 	_n = src._n;
-	_v = src._v;
+	_mlts = src._mlts;
 }
 
 Span& Span::operator=(const Span &src)
 {
 	_n = src._n;
-	_v = src._v;
+	_mlts = src._mlts;
 	return *this;
 }
 
@@ -41,26 +41,22 @@ Span::~Span()
 
 void	Span::addNumber(int i)
 {
-	if (_v.size() == _n)
+	if (_mlts.size() == _n)
 		throw(Span::SpanFull());
-	std::vector<int>::iterator upper = std::upper_bound(_v.begin(), _v.end(), i);		
-	if (upper == _v.end())
-		_v.push_back(i);
-	else
-		_v.insert(upper, i);	
+	_mlts.insert(i);
 }
 
 void	Span::print(void) const
 {
-	if (! _v.size())
+	if (! _mlts.size())
 	{
 		std::cout << "( empty )" << std::endl;
 		return;
 	}
-	std::cout << "(";
-	for (CONST_ITER it = _v.begin(); it != _v.end(); ++it)
-		std::cout << " " << *it;
-	std::cout << " )" << std::endl;
+	std::cout << "( ";
+	for (CONST_ITER it = _mlts.begin(); it != _mlts.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << ")" << std::endl;
 }
 
 char const*	Span::SpanFull::what() const throw()
@@ -75,50 +71,43 @@ char const*	Span::NotEnoughElements::what() const throw()
 
 char const*	Span::NotEnoughSpaceLeft::what() const throw()
 {
-	return "Not enough space left in span";
+	return "Not enough space left";
 }
 
 void		Span::checkSpan() const
 {
-	if (_v.size() <= 1)
+	if (_mlts.size() <= 1)
 		throw(Span::NotEnoughElements());
 }
 
-int			Span::shortestSpan() const
+unsigned int	Span::shortestSpan() const
 {
 	this->checkSpan();
-	
-	int	out = INT_MAX;
-	for (CONST_ITER it = _v.begin(); it != _v.end() - 1; ++it)
+	if (anyDuplicate())
+		return 0;
+	unsigned int	out = longestSpan();
+	for (CONST_ITER it = _mlts.begin(); it != --_mlts.end(); ++it)
 	{
-		int	diff = *(it + 1) - *it;
+		unsigned int	diff = *(++it) - *(--it);
 		if (diff < out)
 			out = diff;
 	}
 	return out;
 }
 
-int			Span::longestSpan() const
+unsigned int	Span::longestSpan() const
 {
 	this->checkSpan();
-	return *(_v.end() - 1) - *_v.begin();
+	return *(--_mlts.end()) - *_mlts.begin();
 }
 
 int		Span::anyDuplicate() const
 {
 	this->checkSpan();
-	for (CONST_ITER it = _v.begin(); it != _v.end() - 1; ++it)
+	for (CONST_ITER it = _mlts.begin(); it != --_mlts.end(); ++it)
 	{
-		if (*(it + 1) == *it)
+		if (*(++it) == *(--it))
 			return true;
 	}
 	return  false;
-}
-
-void	Span::addRange(CONST_ITER begin, CONST_ITER end)
-{
-	if ((unsigned long) std::distance(begin, end) > (_n - _v.size()))
-		throw(Span::NotEnoughSpaceLeft());
-	for (CONST_ITER it = begin; it != end; ++it)
-		this->addNumber(*it);
 }
