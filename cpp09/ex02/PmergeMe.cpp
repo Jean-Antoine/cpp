@@ -21,20 +21,29 @@ PmergeMe::PmergeMe(VEC v):_v(v)
 {
 	_odd = _v.size() % 2;
 	_offset = 0;
+	_sorted = false;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &src)
 {
+	_odd = src._odd;
 	_v = src._v;
-	_odd = _v.size() % 2;
-	_offset = 0;
+	_a = src._a;
+	_b = src._b;
+	_sorted = src._sorted;
+	_offset = src._offset;
+	_bSize = src._bSize;
 }
 
 PmergeMe&	PmergeMe::operator=(const PmergeMe &src)
 {
+	_odd = src._odd;
 	_v = src._v;
-	_odd = _v.size() % 2;
-	_offset = 0;
+	_a = src._a;
+	_b = src._b;
+	_sorted = src._sorted;
+	_offset = src._offset;
+	_bSize = src._bSize;
 	return *this;
 }
 
@@ -58,11 +67,11 @@ void	PmergeMe::fillPairs()
 
 void	PmergeMe::sortPairs()
 {
-	VEC	aSorted;
-	VEC bSorted;
+	PmergeMe	sorted(_a);
+	VEC			aSorted;
+	VEC 		bSorted;
 
-	aSorted = _a;
-	std::sort(aSorted.begin(), aSorted.end());
+	aSorted = sorted.sort();
 	for (ITER it = aSorted.begin(); it != aSorted.end(); ++it)
 	{
 		ITER	ait = std::find(_a.begin(), _a.end(), *it);
@@ -107,81 +116,42 @@ static void	dichotomy(VEC& _a, int value, int idxRight)
 	_a.insert(right, value);
 }
 
-void	PmergeMe::algoVerbose()
+VEC	PmergeMe::sort()
 {
+	if (_v.size() <= 1)
+		return _v;
+	if (_sorted)
+		return _a;
 	int 			step = 2;
 	unsigned int	begin = 0;
-	std::cout << BLUE << "Pairing :\n" RESET;
+	unsigned int	end = 0;
 	fillPairs();
-	print();
-	std::cout << BLUE << "Sorting :\n" RESET;
 	sortPairs();
-	print();
 
 	_a.insert(_a.begin(), _b[0]);
 	_offset++;
-	_b[0] = -1;
-	_b.insert(_b.begin(), -1);
-	std::cout << BLUE "Insert b0\n" RESET;
-	print();
 	while (begin < _bSize - 1)
 	{
 		begin = jacobsthal(step + 1) - 1;
-		unsigned int	end = jacobsthal(step++);
-		if (begin > _bSize)
+		end = jacobsthal(step++);
+		if (begin > _bSize - 1)
 			begin = _bSize - 1;
-		std::cout << BLUE "Elements b" << begin << " to b" << end << RESET << std::endl;
 		for (unsigned int j = begin; j != end - 1; j--)
-		{
-			std::cout << GREEN "Element b" << j << " = " << _b[j + _offset];
-			std::cout << " before a" << begin << " = " << _a[begin + _offset] << RESET << std::endl;
-			dichotomy(_a, _b[j + _offset], begin + _offset);
-			_b[j + _offset] = -1;
-			_b.insert(_b.begin() + 1, -1);
-			_offset++;
-			print();
-		}
+			dichotomy(_a, _b[j], begin + _offset++);
 	}
+	return _a;
 }
 
 
 std::ostream&	operator<<(std::ostream& os, const VEC& v)
 {
 	for (CONST_ITER it = v.begin(); it != v.end(); ++it)
-	{
-		if (*it == -1)
-			os << std::right << std::setw(3) << " " << "|";
-		else
-			os << std::right << std::setw(3) << *it << "|";
-	}
+		os << std::right << std::setw(3) << *it << "|";
 	return os;
 }
 
 void	PmergeMe::print() const
 {
-	std::cout << GREEN "    ";
-	for (unsigned int i = 0; i < _bSize; i++)
-	{
-		if (i < _offset)
-		{
-			std::cout << std::right << std::setw(3) << " " << "|";
-			std::cout << std::right << std::setw(3) << " " << "|";
-		}
-		else
-			std::cout << "a" << std::left << std::setw(2) << i << "|";
-	}
-	std::cout << RESET << std::endl;
 	std::cout << "_a: " << _a << std::endl;
 	std::cout << "_b: " << _b << std::endl;
-	std::cout << GREEN "    ";
-	for (unsigned int i = 0; i < _b.size(); i++)
-	{
-		if (_b[i] == -1)
-		{
-			std::cout << std::right << std::setw(3) << " " << "|";
-		}
-		else
-			std::cout << "b" << std::left << std::setw(2) << i - _offset << "|";
-	}
-	std::cout << RESET << std::endl;
 }

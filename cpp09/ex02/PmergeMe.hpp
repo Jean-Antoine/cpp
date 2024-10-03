@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 08:59:12 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/10/03 09:22:43 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/10/03 10:08:04 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iomanip>
 # include <vector>
 # include <algorithm>
+# include <map>
 # define GREEN	"\e[1;32m"
 # define YELLOW	"\e[1;33m"
 # define RED	"\e[1;31m"
@@ -35,19 +36,19 @@ class PmergeMe
 		VEC				_v;
 		VEC				_a;
 		VEC				_b;
-		VEC				_sorted;
+		bool			_sorted;
 		unsigned int	_offset;
 		unsigned int	_bSize;
-						PmergeMe();
+		void			fillPairs();
+		void			sortPairs();
+		void			print() const;
 	public:
+						PmergeMe();
 						PmergeMe(VEC v);
 						PmergeMe(const PmergeMe &src);
 						~PmergeMe();
 		PmergeMe&		operator=(const PmergeMe &src);
-		void			fillPairs();
-		void			sortPairs();
-		void			algoVerbose();
-		void			print() const;
+		VEC				sort();
 };
 
 std::ostream&	operator<<(std::ostream& os, const VEC& v);
