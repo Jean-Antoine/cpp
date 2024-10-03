@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 10:26:09 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/20 11:56:19 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:11:09 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 int main()
 {
-	MutantStack<int>
-	mstack;
+	MutantStack<int>	mstack;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << BLUE << mstack.top() << std::endl;

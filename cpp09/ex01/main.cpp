@@ -5,42 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 13:05:16 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/26 13:14:26 by jeada-si         ###   ########.fr       */
+/*   Created: 2024/09/25 14:35:04 by jeada-si          #+#    #+#             */
+/*   Updated: 2024/09/26 10:02:41 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <vector>
-#include <iostream>
-#define RESET	"\e[0m"
-#define RED	"\e[1;31m"
+#include "RPN.hpp"
 
-const char*	NotFound::what() const throw()
+static int	checkInput(std::string in)
 {
-	return "Not found";
+	std::string	str = "0123456789+-*/";
+	
+	if (in.size() % 2 == 0)
+		return false;
+	for (unsigned int i = 0; i < in.size(); i++)
+	{
+		if (i % 2 == 0
+			&& str.find(in[i]) == std::string::npos)
+			return false;
+		if (i % 2 == 1 && in[i] != ' ')
+			return false;
+	}
+	return true;
 }
 
-int	main(void)
+int	main(int ac, char** av)
 {
-	std::vector<int>	v(100);
-	
-	std::fill(v.begin(), v.end(), 1);
-	v.insert(v.begin() + 50, 9);
+	if (ac != 2 || !checkInput(av[1]))
+	{
+		std::cerr << RED "Error\n";
+		return 1;
+	}
+	RPN out(av[1]);
 	try
 	{
-		std::cout << "Index is " << easyfind(v, 9) << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << RED << e.what() << RESET "\n";
-	}
-	try
-	{
-		std::cout << "Index is " << easyfind(v, 99) << std::endl;
+		std::cout << out.compute() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << RED << e.what() << RESET "\n";
 	}	
+	return 0;
 }
