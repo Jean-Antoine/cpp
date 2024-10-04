@@ -1,5 +1,5 @@
 SRCS =		main.cpp\
-			PmergeMeV.cpp
+			PmergeMe.cpp
 OBJS =		$(SRCS:.cpp=.o)
 CXX =		c++
 CXXFLAGS =	-Wall -Werror -Wextra -std=c++98 -g3
