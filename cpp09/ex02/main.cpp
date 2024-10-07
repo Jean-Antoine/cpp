@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 11:58:11 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/10/04 11:29:58 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/10/04 13:30:52 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 template<typename T>
 bool	isSorted(T c)
 {
+	if (c.size() <= 1)
+		return true;
 	for (typename T::iterator it = c.begin(); it != c.end() - 1; it++)
 	{
 		typename T::iterator next = it + 1;

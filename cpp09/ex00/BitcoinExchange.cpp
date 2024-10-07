@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:03:44 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/25 14:01:17 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/10/04 14:07:29 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static int			isValidFloat(std::string str)
 {
 	unsigned int i = (str[0] == '+' || str[0] == '-');
 	
+	if (!str.size())
+		return false;
 	while (i < str.size())
 	{	
 		if (!isdigit(str[i]))
@@ -144,26 +146,47 @@ void	BitcoinExchange::compute(std::ifstream & in) const
 	float		last;
 	
 	std::getline(in, line);
+	if (line.compare("date | value"))
+	{
+		error("Wrong header");
+		return ;
+	}
 	while (!in.eof())
 	{
 		std::getline(in, line);
 		if (!line.size())
 			continue ;
-		std::cout << BLUE << line.substr(0, 10) << RESET " => ";
+		std::cout << BLUE << std::left << std::setw(10);
+		std::cout << line.substr(0, 10) << RESET " => ";
 		if (!isValidLine(line))
-		{error("bad input");continue;}
+		{
+			error("bad input");
+			continue;
+		}
 		if (!isValidDate(line.substr(0, 10)))
-		{error("bad date");continue;}
+		{
+			error("bad date");
+			continue;
+		}
 		date_tm = parseDate(line.substr(0, 10));
 		date = mktime(&date_tm);
 		value = std::atof(line.substr(13, std::string::npos).data());
 		if (value < 0)
-		{error("not a positive number");continue;}
+		{
+			error("not a positive number");
+			continue;
+		}
 		if (value > 1000)
-		{error("value higher than 1000");continue;}
+		{
+			error("value higher than 1000");
+			continue;
+		}
 		last = lastPrice(date);
 		if (last == -1)
-		{error("no history for that date"); continue;}
+		{
+			error("no history for that date");
+			continue;
+		}
 		std::cout << value << " = ";
 		std::cout << GREEN << last * value << RESET "\n";
 	}

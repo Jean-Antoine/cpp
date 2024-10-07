@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:22:58 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/09/25 15:21:44 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/10/04 13:20:21 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,14 @@ const char*	RPN::InputError::what() const throw()
 }
 
 float		RPN::recursive(std::stack<char>& stack) const
-{
-	char	c = stack.top();
+{		
+	char	c;
 	float	left;
 	float	right;
 	
+	if (!stack.size())
+		throw(RPN::InputError());
+	c = stack.top();
 	stack.pop();
 	if (isdigit(c))
 		return c - '0';
