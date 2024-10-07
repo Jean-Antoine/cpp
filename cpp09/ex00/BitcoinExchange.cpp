@@ -6,17 +6,31 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:03:44 by jeada-si          #+#    #+#             */
-/*   Updated: 2024/10/04 14:07:29 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/10/07 08:41:43 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <iostream>
 
+static void	initTm(struct tm* date)
+{
+	date->tm_sec = 0;
+	date->tm_min = 0;
+	date->tm_hour = 0;
+	date->tm_mday = 0;
+	date->tm_mon = 0;
+	date->tm_year = 0;
+	date->tm_wday = 0;
+	date->tm_yday = 0;
+	date->tm_isdst = 0;
+}
+
 static struct tm	parseDate(std::string str)
 {
 	struct tm	date;
 	
+	initTm(&date);
 	str.append(" 12:00:00");
 	strptime(str.data(), "%Y-%m-%d %H:%M:%S", &date);
 	return date;
@@ -29,6 +43,7 @@ static int			isValidDate(std::string str)
 	struct tm	date;
 	char		buffer[90];
 
+	initTm(&date);
 	date = parseDate(str);
 	strptime(str.data(), "%Y-%m-%d %H:%M:%S", &date);
 	date_t = mktime(&date);
@@ -94,6 +109,7 @@ BitcoinExchange::BitcoinExchange(std::ifstream &in)
 		time_t				date_t;
 		float				value;
 
+		initTm(&date_tm);
 		std::getline(in, line, ',');
 		if (!line.size())
 			continue ;
